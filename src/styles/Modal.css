@@ -1,0 +1,16 @@
+.modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: white;
+    border-radius: .75rem;
+    width: 25%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    margin-left: auto;
+    cursor: pointer;
+}

@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import Sidebar from './components/Sidebar';
+import Modal from './components/Modal';
+import { useState } from 'react';
 
 function App() {
+  const [modal, setModal] = useState(<div></div>);
+
+  function getImages() {
+    let divs = document.querySelectorAll('.content > .imageToDrag')
+    for (let div of divs) {
+      div.removeEventListener('click', onClick)
+      div.addEventListener('click', onClick)
+    }
+  }
+
+  function onClick(e) {
+    setModal(<Modal
+      obj={e.target}
+      close={() => setModal(<div></div>)}
+    />)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar/>
+      <div className="content" contentEditable={true} onInput={getImages}></div>
+      {modal}
     </div>
   );
 }

@@ -1,0 +1,20 @@
+
+.sidebar {
+    width: 20%;
+    background-color: white;
+    display: inline-flex;
+    overflow-y: auto;
+    height: 100%;
+    flex-direction: column;
+}
+
+.imageToDrag {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.image {
+    margin: 10px;
+    display: flex;
+}
